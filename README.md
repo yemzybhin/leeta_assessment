@@ -1,6 +1,6 @@
 # Leeta Agent Order Dashboard
 
-A full-stack monorepo for the Agent Order Management feature — built with **React Native (Expo)** for mobile and **Next.js for web. Both apps share a single package, `@repo/ui`, which contains reusable hooks, types, and business logic.
+A full-stack monorepo for the Agent Order Management feature. Built with **React Native (Expo)** for mobile and **Next.js for web. Both apps share a single package, `@repo/ui`, which contains reusable hooks, types, and business logic.
 
 ---
 
@@ -88,8 +88,8 @@ getLeeta/
 ## Architecture Notes
 
 * **Monorepo with Turborepo:** single `npm run dev` to start everything.
-* **Shared package (`@repo/ui`)** holds all cross-platform logic — hooks, types, utilities.
-* **Web:** Next.js + Tailwind CSS v4, fonts loaded via `next/font/google`.
+* **Shared package (`@repo/ui`)** holds all cross-platform logic. hooks, types, utilities.
+* **Web:** Next.js.
 * **Mobile:** React Native via Expo, uses shared hooks and assets from `@repo/ui`.
 
 ---
@@ -97,6 +97,5 @@ getLeeta/
 ## Notes
 
 * Web and mobile share only the `@repo/ui` package.
-* Fonts and icons are centralized for consistency.
 * Pull-to-refresh, loading, and error states behave as specified in the assessment.
 * You need the **latest Expo Go** app to view the mobile app.
