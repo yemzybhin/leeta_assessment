@@ -11,7 +11,6 @@ const SkeletonBlock: React.FC<SkeletonBlockProps> = ({ width, height }) => {
     width,
     height,
   };
-
   return <div className="skeleton" style={style} />;
 };
 

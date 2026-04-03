@@ -1,5 +1,5 @@
 "use client";
-
+import "../styles/orders.css";
 import React, { useMemo, useState, useEffect } from "react";
 import { useOrders, Order, OrderStatus } from "@repo/ui";
 import { OrderCard } from "./ordercard";
@@ -16,8 +16,6 @@ import {
   FireIcon,
   CreditCardIcon,
 } from "@heroicons/react/24/solid";
-
-import "../styles/orders.css";
 
 type FilterOption = OrderStatus | "all";
 

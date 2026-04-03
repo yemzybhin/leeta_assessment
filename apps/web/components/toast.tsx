@@ -7,7 +7,11 @@ interface ToastProps {
   visible: boolean;
 }
 
-export const Toast: React.FC<ToastProps> = ({ message, type = "success", visible }) => {
+export const Toast: React.FC<ToastProps> = ({
+  message,
+  type = "success",
+  visible,
+}) => {
   const [show, setShow] = useState(visible);
 
   useEffect(() => {
@@ -19,7 +23,10 @@ export const Toast: React.FC<ToastProps> = ({ message, type = "success", visible
   }, [visible]);
 
   return (
-    <div className={`toast ${type} ${visible ? "show" : ""}`} aria-hidden={!visible}>
+    <div
+      className={`toast ${type} ${visible ? "show" : ""}`}
+      aria-hidden={!visible}
+    >
       <span className="icon">{type === "success" ? "✓" : "✕"}</span>
       <span className="message">{message}</span>
     </div>
@@ -28,10 +35,17 @@ export const Toast: React.FC<ToastProps> = ({ message, type = "success", visible
 
 // Hook to manage toast
 export const useToast = () => {
-  const [toast, setToast] = useState({ message: "", type: "success" as "success" | "error", visible: false });
+  const [toast, setToast] = useState({
+    message: "",
+    type: "success" as "success" | "error",
+    visible: false,
+  });
   let timerRef: number | null = null;
 
-  const showToast = (message: string, type: "success" | "error" = "success") => {
+  const showToast = (
+    message: string,
+    type: "success" | "error" = "success",
+  ) => {
     if (timerRef) clearTimeout(timerRef);
     setToast({ message, type, visible: true });
     timerRef = window.setTimeout(() => {

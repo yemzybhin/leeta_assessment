@@ -1,32 +1,102 @@
-# Turborepo react-native starter
+# Leeta Agent Order Dashboard
 
-This is a community-maintained example. If you experience a problem, please submit a pull request with a fix. GitHub Issues will be closed.
+A full-stack monorepo for the Agent Order Management feature — built with **React Native (Expo)** for mobile and **Next.js + Tailwind CSS v4** for web. Both apps share a single package, `@repo/ui`, which contains reusable hooks, types, and business logic.
 
-## Using this example
+---
 
-Run the following command:
+## Quick Start
 
-```sh
-npx create-turbo@latest -e with-react-native-web
+### Prerequisites
+
+* Node.js ≥ 18
+* npm ≥ 8 (for workspaces support)
+* For mobile: [Expo Go](https://expo.dev/go) on your device (download the latest version from the Expo site, not Play Store)
+
+### Install Dependencies
+
+From the repo root:
+
+```bash
+npm install
 ```
 
-## What's inside?
+---
 
-This Turborepo includes the following packages/apps:
+## Run the Apps
 
-### Apps and Packages
+From the repo root, you can start both apps:
 
-- `native`: a [react-native](https://reactnative.dev/) app built with [expo](https://docs.expo.dev/)
-- `web`: a [Next.js](https://nextjs.org/) app built with [react-native-web](https://necolas.github.io/react-native-web/)
-- `@repo/ui`: a stub [react-native](https://reactnative.dev/) component library shared by both `web` and `native` applications
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+```bash
+npm run dev
+```
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+* Web: open [http://localhost:3000](http://localhost:3000)
+* Mobile: scan the QR code in **Expo Go** to open the app
 
-### Utilities
+Or start apps individually by navigating into the respective folder:
 
-This Turborepo has some additional tools already setup for you:
+```bash
+cd apps/web
+npm run dev        # Start web only
 
-- [Expo](https://docs.expo.dev/) for native development
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [Prettier](https://prettier.io) for code formatting
+cd apps/mobile
+npm run dev        # Start mobile only
+```
+
+---
+
+## Features Implemented
+
+* Pull-to-refresh on mobile
+* Loading skeletons / state
+* Error states with retry
+* Status filters: All / Pending / In Transit / Delivered
+* Optimistic UI updates with rollback
+* Shared icons and fonts between apps
+* Responsive web layout
+* Accessible markup (`aria-label`, `role`)
+
+---
+
+## Project Structure
+
+```
+getLeeta/
+│
+├── packages/
+│   └── ui/                        # Shared package
+│       ├── hooks/                 # Reusable hooks (useOrders, etc.)
+│       ├── types/                 # Order, OrderStatus types
+│       ├── utils/                 # Formatters, loggers
+│       └── components/            # Shared UI components if any
+│
+├── apps/
+│   ├── web/                       # Next.js app
+│   │   ├── pages/
+│   │   ├── components/
+│   │   └── styles/
+│   │
+│   └── mobile/                    # React Native (Expo)
+│       ├── App.tsx
+│       ├── screens/
+│       ├── components/
+│       └── theme/
+```
+
+---
+
+## Architecture Notes
+
+* **Monorepo with Turborepo:** single `npm run dev` to start everything.
+* **Shared package (`@repo/ui`)** holds all cross-platform logic — hooks, types, utilities.
+* **Web:** Next.js + Tailwind CSS v4, fonts loaded via `next/font/google`.
+* **Mobile:** React Native via Expo, uses shared hooks and assets from `@repo/ui`.
+
+---
+
+## Notes
+
+* Web and mobile share only the `@repo/ui` package.
+* Fonts and icons are centralized for consistency.
+* Pull-to-refresh, loading, and error states behave as specified in the assessment.
+* You need the **latest Expo Go** app to view the mobile app.

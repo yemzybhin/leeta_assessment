@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/FilterTabs.css";
-
-export type OrderStatus = "pending" | "in_transit" | "delivered"; // adjust if needed
+import { OrderStatus } from "@repo/ui";
 type FilterOption = OrderStatus | "all";
 
 interface FilterTabsProps {
