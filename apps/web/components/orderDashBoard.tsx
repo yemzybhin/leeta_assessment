@@ -1,7 +1,7 @@
 "use client";
 import "../styles/orders.css";
 import React, { useMemo, useState, useEffect } from "react";
-import { useOrders, Order, OrderStatus } from "@repo/ui";
+import { useOrders, Order, OrderStatus , formatNumber } from "@repo/ui";
 import { OrderCard } from "./ordercard";
 import { LoadingState } from "./loadingstate";
 import { EmptyState } from "./EmptyState";
@@ -10,14 +10,13 @@ import { FilterTabs } from "./FilterTabs";
 import { Toast, useToast } from "./toast";
 import { OrdersHeader } from "./OrdersHeaders";
 import { StatPill } from "./statpill";
-
+import { FilterOption} from '@repo/ui'
 import {
   ArrowPathIcon,
   FireIcon,
   CreditCardIcon,
 } from "@heroicons/react/24/solid";
 
-type FilterOption = OrderStatus | "all";
 
 const UpdatePricePopup: React.FC<{
   visible: boolean;
@@ -36,9 +35,6 @@ const UpdatePricePopup: React.FC<{
       onClose();
     }
   };
-
-  const formatNumber = (num: string) =>
-    num.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   if (!visible) return null;
 

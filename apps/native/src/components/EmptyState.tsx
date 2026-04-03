@@ -1,10 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { colors, spacing, typography } from "../theme";
-
-interface EmptyStateProps {
-  message?: string;
-}
+import { EmptyStateProps } from '@repo/ui'
 
 export const EmptyState: React.FC<EmptyStateProps> = ({
   message = "No orders found",

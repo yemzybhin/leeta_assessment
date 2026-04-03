@@ -5,16 +5,9 @@ import {
   ScrollView,
   StyleSheet,
 } from "react-native";
-import { OrderStatus } from "@repo/ui";
+import { OrderStatus, FilterTabsProps, FilterOption } from "@repo/ui";
 import { colors, spacing, typography, radius } from "../theme";
 
-type FilterOption = OrderStatus | "all";
-
-interface FilterTabsProps {
-  active: FilterOption;
-  onChange: (status: FilterOption) => void;
-  counts: Record<FilterOption, number>;
-}
 
 const TABS: { key: FilterOption; label: string }[] = [
   { key: "pending", label: "New" },

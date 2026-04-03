@@ -1,11 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { colors, spacing, typography, radius } from "../theme";
-
-interface ErrorStateProps {
-  message: string;
-  onRetry: () => void;
-}
+import { ErrorStateProps } from '@repo/ui'
 
 export const ErrorState: React.FC<ErrorStateProps> = ({ message, onRetry }) => (
   <View style={styles.container} testID="error-state">

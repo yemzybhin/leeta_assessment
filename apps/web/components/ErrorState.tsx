@@ -1,10 +1,6 @@
 import React from "react";
 import "../styles/Errorstate.css";
-
-interface ErrorStateProps {
-  message: string;
-  onRetry: () => void;
-}
+import { ErrorStateProps } from '@repo/ui'
 
 export const ErrorState: React.FC<ErrorStateProps> = ({ message, onRetry }) => (
   <div className="errorState" data-testid="error-state">

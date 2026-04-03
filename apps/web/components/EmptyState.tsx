@@ -1,9 +1,7 @@
 import React from "react";
 import "../styles/EmptyState.css";
+import { EmptyStateProps } from '@repo/ui'
 
-interface EmptyStateProps {
-  message?: string;
-}
 
 export const EmptyState: React.FC<EmptyStateProps> = ({
   message = "No orders found",

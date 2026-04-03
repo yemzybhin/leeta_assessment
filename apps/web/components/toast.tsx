@@ -33,7 +33,6 @@ export const Toast: React.FC<ToastProps> = ({
   );
 };
 
-// Hook to manage toast
 export const useToast = () => {
   const [toast, setToast] = useState({
     message: "",

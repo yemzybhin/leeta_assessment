@@ -325,8 +325,8 @@ export default function OrderDetailsScreen() {
           <InfoRow label="Order type" value="LPG" />
           <InfoRow label="Delivery method" value="On-site refill" green />
           <InfoRow label="Price per kg" value={formatPrice(priceperkg)} />
-          <InfoRow label="Estimated arrival" value={order.eta} />
-          <InfoRow label="Payment method" value={order.paymentMethod} />
+          <InfoRow label="Estimated arrival" value={"2 hrs"} />
+          <InfoRow label="Payment method" value={"Naira"} />
           <InfoRow label="Delivery fee" value={formatPrice(deliveryFee)} />
           <InfoRow label="Service charges" value={formatPrice(servicecharge)} />
 

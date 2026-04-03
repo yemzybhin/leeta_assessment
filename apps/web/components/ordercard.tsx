@@ -5,28 +5,8 @@ import {
   MapPinIcon,
 } from "@heroicons/react/24/outline";
 import GasIcon from "../public/assets/icons/gas.png";
-
-import { Order } from "@repo/ui";
+import { Order, timeAgo, OrderCardProps } from "@repo/ui";
 import Image from "next/image";
-
-interface OrderCardProps {
-  order: Order;
-  onMarkDelivered: (id: string) => void;
-  onMarkRejected: (id: string) => void;
-  gasPrice: number;
-  isUpdating: boolean;
-}
-
-const timeAgo = (date: string | number | Date) => {
-  const now = new Date().getTime();
-  const past = new Date(date).getTime();
-  const diff = Math.floor((now - past) / 1000);
-
-  if (diff < 60) return `${diff}s ago`;
-  if (diff < 3600) return `${Math.floor(diff / 60)} mins ago`;
-  if (diff < 86400) return `${Math.floor(diff / 3600)} hrs ago`;
-  return `${Math.floor(diff / 86400)} days ago`;
-};
 
 const formatToPrice = (num: number, price: number) =>
   (num * price).toLocaleString();

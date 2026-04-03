@@ -12,7 +12,7 @@ import {
   Modal,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useOrders, Order, OrderStatus } from "@repo/ui";
+import { useOrders, Order, OrderStatus , formatNumber, FilterOption } from "@repo/ui";
 import { OrderCard } from "../components/OrderCard";
 import { LoadingState } from "../components/LoadingState";
 import { EmptyState } from "../components/EmptyState";
@@ -23,7 +23,6 @@ import { colors, spacing, typography, radius } from "../theme";
 import { OrdersHeader } from "../components/headerActions";
 import { StatPill } from "../components/statsPill";
 
-type FilterOption = OrderStatus | "all";
 
 const UpdatePricePopup: React.FC<{
   visible: boolean;
@@ -42,9 +41,6 @@ const UpdatePricePopup: React.FC<{
       onClose();
     }
   };
-
-  const formatNumber = (num: string) =>
-    num.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
     <Modal

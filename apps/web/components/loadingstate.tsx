@@ -1,10 +1,6 @@
 import React from "react";
 import "../styles/LoadingState.css";
-
-type SkeletonBlockProps = {
-  width: number | string;
-  height: number;
-};
+import { SkeletonBlockProps } from '@repo/ui'
 
 const SkeletonBlock: React.FC<SkeletonBlockProps> = ({ width, height }) => {
   const style: React.CSSProperties = {

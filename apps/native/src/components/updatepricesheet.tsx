@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from "react-native";
+
+import { formatNumber } from '@repo/ui'
 import { colors, spacing, typography, radius } from "../theme";
 
 const UpdatePricePopup: React.FC<{
@@ -26,9 +28,6 @@ const UpdatePricePopup: React.FC<{
       onClose();
     }
   };
-
-  const formatNumber = (num: string) =>
-    num.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
     <Modal

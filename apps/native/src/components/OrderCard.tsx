@@ -7,29 +7,11 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
-import { Order } from "@repo/ui";
+import { Order, timeAgo, OrderCardProps } from "@repo/ui";
 import { colors, spacing, typography, radius } from "../theme";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
-const timeAgo = (date: string | number | Date) => {
-  const now = new Date().getTime();
-  const past = new Date(date).getTime();
-  const diff = Math.floor((now - past) / 1000);
-
-  if (diff < 60) return `${diff}s ago`;
-  if (diff < 3600) return `${Math.floor(diff / 60)} mins ago`;
-  if (diff < 86400) return `${Math.floor(diff / 3600)} hrs ago`;
-  return `${Math.floor(diff / 86400)} days ago`;
-};
-
-interface OrderCardProps {
-  order: Order;
-  onMarkDelivered: (id: string) => void;
-  onMarkRejected: (id: string) => void;
-  gasPrice: number;
-  isUpdating: boolean;
-}
 
 export const OrderCard: React.FC<OrderCardProps> = ({
   order,

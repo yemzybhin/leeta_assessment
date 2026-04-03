@@ -1,13 +1,7 @@
 import React from "react";
 import "../styles/FilterTabs.css";
-import { OrderStatus } from "@repo/ui";
-type FilterOption = OrderStatus | "all";
+import { OrderStatus, FilterTabsProps, FilterOption } from "@repo/ui";
 
-interface FilterTabsProps {
-  active: FilterOption;
-  onChange: (status: FilterOption) => void;
-  counts: Record<FilterOption, number>;
-}
 
 const TABS: { key: FilterOption; label: string }[] = [
   { key: "pending", label: "New" },
