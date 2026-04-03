@@ -1,8 +1,132 @@
+@import "tailwindcss";
+
+/* ─── Design tokens ──────────────────────────────────────────────────────────── */
+
+:root {
+  /* Brand */
+  --primary:           #FF6B00;
+  --primary-hover:     #e65c00;
+  --primary-light:     #FFF0E6;
+
+  /* Surfaces */
+  --background:        #F5F5F5;
+  --surface:           #FFFFFF;
+  --border:            #E5E7EB;
+
+  /* Text */
+  --foreground:        #1A1A1A;
+  --text-secondary:    #6B7280;
+  --text-muted:        #9CA3AF;
+
+  /* Status — pending (amber) */
+  --status-pending:    #F59E0B;
+  --status-pending-bg: #FFFBEB;
+
+  /* Status — in transit (blue) */
+  --status-transit:    #3B82F6;
+  --status-transit-bg: #EFF6FF;
+
+  /* Status — delivered (green) */
+  --status-delivered:    #10B981;
+  --status-delivered-bg: #ECFDF5;
+
+  /* Feedback */
+  --color-error:     #EF4444;
+  --color-error-bg:  #FEF2F2;
+
+  /* Fonts */
+  --font-display: var(--font-sora), "Sora", Arial, Helvetica, sans-serif;
+  --font-body:    var(--font-inter), "Inter", Arial, Helvetica, sans-serif;
+}
+
+/* ─── Tailwind v4 theme registration ────────────────────────────────────────── */
+
+@theme inline {
+  /* Colours */
+  --color-primary:          var(--primary);
+  --color-primary-hover:    var(--primary-hover);
+  --color-primary-light:    var(--primary-light);
+
+  --color-background:       var(--background);
+  --color-surface:          var(--surface);
+  --color-border:           var(--border);
+
+  --color-foreground:       var(--foreground);
+  --color-text-secondary:   var(--text-secondary);
+  --color-text-muted:       var(--text-muted);
+
+  --color-status-pending:       var(--status-pending);
+  --color-status-pending-bg:    var(--status-pending-bg);
+  --color-status-transit:       var(--status-transit);
+  --color-status-transit-bg:    var(--status-transit-bg);
+  --color-status-delivered:     var(--status-delivered);
+  --color-status-delivered-bg:  var(--status-delivered-bg);
+
+  --color-error:            var(--color-error);
+  --color-error-bg:         var(--color-error-bg);
+
+  /* Typography */
+  --font-display: var(--font-display);
+  --font-body:    var(--font-body);
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif;
-  display: flex;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Custom utilities ───────────────────────────────────────────────────────── */
+
+@utility card-shadow {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+@utility card-shadow-hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Shimmer skeleton animation */
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@utility skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--border) 25%,
+    #f0f0f0 50%,
+    var(--border) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+/* Toast slide-up */
+@keyframes slide-up {
+  from { transform: translateX(-50%) translateY(80px); opacity: 0; }
+  to   { transform: translateX(-50%) translateY(0);   opacity: 1; }
+}
+
+@utility animate-slide-up {
+  animation: slide-up 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }

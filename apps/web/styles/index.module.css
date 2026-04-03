@@ -1,3 +1,249 @@
-.container {
-  text-align: center;
+:root {
+  --primary: #ff6b00;
+  --primary-hover: #e65c00;
+  --primary-light: #fff0e6;
+
+  --background: #f5f5f5;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+
+  --foreground: #1a1a1a;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+
+  --status-pending: #f59e0b;
+  --status-pending-bg: #fffbeb;
+  --status-transit: #3b82f6;
+  --status-transit-bg: #eff6ff;
+  --status-delivered: #10b981;
+  --status-delivered-bg: #ecfdf5;
+
+  --color-error: #ef4444;
+  --color-error-bg: #fef2f2;
+
+  --font-display: "Sora", Arial, Helvetica, sans-serif;
+  --font-body: "Inter", Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.web-root {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar-header {
+  padding: 0 8px;
+  margin-bottom: 36px;
+}
+
+.sidebar-header span {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #ff6b00;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+
+.nav-item.active {
+  background: #fff0e6;
+  color: #ff6b00;
+  font-weight: 600;
+}
+
+.nav-item:not(.active) {
+  color: #6b7280;
+}
+
+.nav-item:not(.active):hover {
+  background: #f5f5f5;
+  color: #1a1a1a;
+}
+
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f5f5f5;
+}
+
+.sidebar-profile .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ff6b00;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.sidebar-profile .info p:first-child {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-profile .info p:last-child {
+  font-size: 11px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px;
+  min-width: 0;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header h1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.header p {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+.refresh-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.refresh-button:hover {
+  border-color: #ff6b00;
+  color: #ff6b00;
+}
+
+.refresh-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 24px;
+  border: 1px solid transparent;
+}
+
+.stat-card.pending {
+  background: #fffbeb;
+  border-color: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+}
+
+.stat-card.in-transit {
+  background: #eff6ff;
+  border-color: rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+}
+
+.stat-card.delivered {
+  background: #ecfdf5;
+  border-color: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.stat-card .icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: brightness(0.95);
+}
+
+.stat-card .value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.stat-card .label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }

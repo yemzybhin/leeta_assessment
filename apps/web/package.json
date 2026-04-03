@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@repo/ui": "*",
     "next": "16.2.0",
     "react": "19.2.0",

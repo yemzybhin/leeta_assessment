@@ -1,0 +1,78 @@
+:root {
+  --color-primary: #ff6b00;
+  --color-border: #e5e7eb;
+  --color-white: #ffffff;
+  --color-background-fade: #e9edf0;
+  --color-text-black: #000000;
+  --color-text-secondary: #6b7280;
+
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-xxl: 24px;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-weight-medium: 500;
+  --font-weight-semiBold: 600;
+}
+
+.filterTabs {
+  display: flex;
+  overflow-x: auto;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  background-color: var(--color-background-fade);
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.tabActive {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  padding: var(--spacing-sm) var(--spacing-lg);
+}
+
+.tabLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+.tabLabelActive {
+  color: var(--color-text-black);
+}
+
+.badge {
+  background-color: var(--color-border);
+  border-radius: var(--radius-md);
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semiBold);
+  color: var(--color-text-secondary);
+}
+
+.badgeActive {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}

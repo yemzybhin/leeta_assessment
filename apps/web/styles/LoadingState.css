@@ -1,0 +1,57 @@
+:root {
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --radius-sm: 6px;
+  --radius-lg: 14px;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+.loadingState {
+  padding: var(--spacing-lg);
+}
+
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.skeleton {
+  background-color: var(--color-border);
+  border-radius: var(--radius-sm);
+  animation: pulse 1.4s infinite;
+}
+
+.mtSm {
+  margin-top: var(--spacing-sm);
+}
+
+.mtMd {
+  margin-top: var(--spacing-md);
+}

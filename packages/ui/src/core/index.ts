@@ -2,7 +2,6 @@ export * from "./types";
 export * from "./hooks";
 export * from "./api";
 export * from "./data";
-export * from "./logger";
 
 import { OrderStatus } from "./types";
 

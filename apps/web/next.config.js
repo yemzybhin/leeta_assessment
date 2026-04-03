@@ -1,5 +1,8 @@
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ["ik.imagekit.io"],
+  },
   turbopack: {
     resolveAlias: {
       "react-native": "react-native-web",
@@ -19,7 +22,6 @@ module.exports = {
   webpack: (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
-      // Transform all direct `react-native` imports to `react-native-web`
       "react-native$": "react-native-web",
     };
     config.resolve.extensions = [
@@ -32,3 +34,5 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = nextConfig;

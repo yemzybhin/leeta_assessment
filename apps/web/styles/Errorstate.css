@@ -1,0 +1,63 @@
+:root {
+  --color-primary: #ff6b00;
+  --color-white: #ffffff;
+  --color-text-primary: #1a1a1a;
+  --color-text-muted: #9ca3af;
+
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-xxl: 24px;
+  --spacing-xxxl: 32px;
+
+  --font-size-md: 14px;
+  --font-size-xl: 18px;
+
+  --font-weight-semiBold: 600;
+
+  --radius-md: 10px;
+}
+
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--spacing-xxxl) * 2) var(--spacing-xxxl);
+  text-align: center;
+}
+
+.errorIcon {
+  font-size: 48px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.errorTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semiBold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.errorMessage {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  line-height: 20px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.retryButton {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--spacing-md) var(--spacing-xxl);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semiBold);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.retryButton:hover {
+  background-color: #e65a00;
+}

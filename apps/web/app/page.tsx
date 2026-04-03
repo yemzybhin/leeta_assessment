@@ -1,14 +1,13 @@
 "use client";
 
-import { Button } from "@repo/ui";
-
-import styles from "../styles/index.module.css";
+import React from "react";
+import "../styles/index.module.css"; // import CSS
+import OrdersScreenTest from "../components/orderDashBoard";
 
 export default function Web() {
   return (
-    <div className={styles.container}>
-      <h1>Web</h1>
-      <Button onClick={() => console.log("Pressed!")} text="Boop" />
+    <div className="web-root">
+      <OrdersScreenTest />
     </div>
   );
 }
